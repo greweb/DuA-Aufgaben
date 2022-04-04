@@ -1,9 +1,12 @@
 public class Bruch
 {
-    private int zaehler;
-    private int nenner;
-    private int u=1;
-    public Bruch(int pzaehler, int pnenner)
+    private double zaehler;
+    private double nenner;
+    private double u=1;
+    private double sum=0;
+    private double n=1;
+    private double eule=1;
+    public Bruch(double pzaehler, double pnenner)
     {
         zaehler=pzaehler;
         nenner=pnenner;
@@ -29,14 +32,30 @@ public class Bruch
     }
     public Bruch summe()
     {
-        Bruch summe=new Bruch(1,u);
+        Bruch summe=new Bruch(1.0,u);
         for(int u=1;u<=20;u++)
         {
             System.out.println(summe.nenner+"/"+summe.zaehler);
+            sum=sum+(summe.nenner/summe.zaehler);
             summe.add(summe,summe);
         }
-        
+        System.out.println("Summe:"+sum);
         return summe;
+    }
+    public Bruch euler()
+    {
+        Bruch eulisch=new Bruch(1.0,n);
+        for(n=1;n<=200000;n++)
+        {
+            for(double i=1;i<=n;i++)
+            {
+                eulisch.nenner=eulisch.nenner*i;
+            }
+            eule=eule+(1.0/eulisch.nenner);
+            eulisch.nenner=1;
+        }
+        System.out.println("Eulerische Zahl:"+eule);
+        return eulisch;
     }
 }
 
