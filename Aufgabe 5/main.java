@@ -4,6 +4,6 @@ public class main
     {
         Sorter mergesort= new Sorter();
         int a[] = {3,63,456,346,3456,346,346,34};
-        mergesort.Mergesort(a);
+        mergesort.split(a);
     }
 }
