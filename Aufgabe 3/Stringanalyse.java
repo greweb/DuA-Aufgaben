@@ -18,7 +18,7 @@ public class Stringanalyse
     {
         text=text.toUpperCase();
         String c=text.substring(0,1);
-        for(int x=1;x<=(text.length());x++)
+        for(int x=2;x<=(text.length());x++)
         {
             buchstabenanzahl[c.charAt(0)]=buchstabenanzahl[c.charAt(0)]+1;
             if(c.equals(space))

@@ -1,9 +1,12 @@
-public class main 
+import java.util.Scanner;
+public class mainString 
 {
     public static void main(String[] args) 
     {
+        Scanner scan=new Scanner(System.in);
         Stringanalyse text=new Stringanalyse();
-        text.setText("Hallo ich wuerde gerne AAAA");
+        String str= scan.nextLine();
+        text.setText(str);
         text.getText();
         text.wortanzahl();
     }   
