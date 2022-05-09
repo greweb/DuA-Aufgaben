@@ -1,70 +1,77 @@
 public class Sorter 
 {
-    int numbers[]={0,0,0,0,0,0,0,0};
-    int partOne[];
-    int partTwo[];
-    int n=0;
-    int m=0;
-    int skippy=0;
-    int min=0;
-    int max=0;
-    public void split(int numbers[])
+    public int[] mergesort(int numbers[])
     {
-        numbers = this.numbers;
-        int partOne[]=new int[numbers.length/2];
-        int partTwo[]=new int[numbers.length/2];
+        
+        int [] partOne = new int[numbers.length/2];
+
+        int [] arrayback = new int[numbers.length];
+        int [] partTwo;
+        if (numbers.length%2 == 1) {
+            partTwo = new int[(numbers.length/2)+1];
+        }
+        else {
+            partTwo = new int[(numbers.length/2)];
+        }
         int j=0;
-        for(int i=0;i<=numbers.length;i++)
+        for(int i=0;i<numbers.length;i++)
         {
             if(i<numbers.length/2)
             {
                 partOne[i]=numbers[i];
             }
+            
             else
             {
                 partTwo[j]=numbers[i];
                 j++;
             }
         }
-    }
-    public void sort()
-    {
-        if(partOne.length>1)
-        {
-            if(n>1&&partOne[n]<partOne[n-1]&&m<=numbers.length/2&&skippy==0)
-            {
-                partOne[m]=partOne[n];
-                n++;
-                sort();
-            }
-            else if(m<=numbers.length/2&&skippy==0)
-            {
-                m++;
-                n=0;
-                sort();
-            }
-            else if(m>numbers.length&&skippy==1)
-            {
-                m=0;
-                skippy+=1;
-                sort();
-            }
-            else if(skippy==1&&n>1&&partTwo[n]<partTwo[n-1]&&m<=numbers.length/2)
-            {
-                partTwo[m]=partTwo[n];
-                n++;
-                sort();
-            }
-            else if(skippy==1&&m<=numbers.length/2)
-            {
-                m++;
-                n=0;
-                merge();
-            }
+        if (partOne.length>=2){
+        	partOne = mergesort(partOne);
         }
-    }   
-    public void merge()
-    {
+        if(partTwo.length>=2){
+        	partTwo = mergesort(partTwo);
+        } 	
+        
+        	//merge
+    	int x = 0;
+    	int y = 0;
+    	int z = 0;
+    	while (x+y != numbers.length  ) {
 
-    }
+        	System.out.print(x+" "+y+" "+z+"     ");
+    		if (x>(partTwo.length)-1) {
+    			arrayback[z] = partOne[y];
+    			y++;
+    		}
+    		else if (y>(partOne.length)-1) {
+    			arrayback[z] = partTwo[x];
+    			x++;
+    		}
+    		else if (partTwo[x] > partOne[y]) {
+    			arrayback[z] = partOne[y];
+    			y++;
+    		}
+    		else {
+    			arrayback[z] = partTwo[x];
+    			x++;
+    		}
+    		z++;
+
+        	System.out.println(x+" "+y+" "+z+"     ");
+	
+        }
+    	System.out.println(arrayback[0]+" ");	
+    	
+		return arrayback;
+        
+        
+        
+        
+        
+        
+        
+        
+    }    
 }
