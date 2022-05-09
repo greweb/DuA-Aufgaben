@@ -1,11 +1,11 @@
 public class Sorter 
 {
     int numbers[]={0,0,0,0,0,0,0,0};
-    public int Mergesort(int numbers[])
+    public void Split(int numbers[])
     {
         numbers = this.numbers;
-        int partOne[]={};
-        int partTwo[]={};
+        int partOne[int(numbers.length/2)];
+        int partTwo[int(numbers.lenght/2)];
         int j=0;
         for(int i=0;i<=numbers.length;i++)
         {
@@ -19,6 +19,13 @@ public class Sorter
                 j++;
             }
         }
-        Mergesort();
-    }    
+    }
+    public void Sort()
+    {
+
+    }   
+    public void Merge()
+    {
+
+    }
 }
