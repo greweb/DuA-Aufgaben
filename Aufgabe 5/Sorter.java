@@ -1,17 +1,17 @@
 public class Sorter 
 {
-    public int[] mergesort(int numbers[])
+    public Comparable[] mergesort(Comparable numbers[])
     {
         
-        int [] partOne = new int[numbers.length/2];
+    	Comparable[] partOne = new Comparable[numbers.length/2];
 
-        int [] arrayback = new int[numbers.length];
-        int [] partTwo;
+    	Comparable[] arrayback = new Comparable[numbers.length];
+    	Comparable[] partTwo;
         if (numbers.length%2 == 1) {
-            partTwo = new int[(numbers.length/2)+1];
+            partTwo = new Comparable[(numbers.length/2)+1];
         }
         else {
-            partTwo = new int[(numbers.length/2)];
+            partTwo = new Comparable[(numbers.length/2)];
         }
         int j=0;
         for(int i=0;i<numbers.length;i++)
@@ -40,7 +40,7 @@ public class Sorter
     	int z = 0;
     	while (x+y != numbers.length  ) {
 
-        	System.out.print(x+" "+y+" "+z+"     ");
+        	//System.out.print(x+" "+y+" "+z+"     ");
     		if (x>(partTwo.length)-1) {
     			arrayback[z] = partOne[y];
     			y++;
@@ -49,7 +49,7 @@ public class Sorter
     			arrayback[z] = partTwo[x];
     			x++;
     		}
-    		else if (partTwo[x] > partOne[y]) {
+    		else if (partTwo[x].compareTo(partOne[y])>0 ) {
     			arrayback[z] = partOne[y];
     			y++;
     		}
