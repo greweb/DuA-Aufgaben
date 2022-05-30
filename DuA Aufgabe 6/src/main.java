@@ -20,30 +20,63 @@ public class main
 		int j=0;
 		int n=0;
 		double[] wert=new double[3];
+		double muenzgewicht=0;
+		double scheinflaeche=0;
+		double muenzstapel=0;
 		Zahlungsmittel[] gueltig=new Zahlungsmittel[69];
 		for(Zahlungsmittel i : geld)
 		{
 			if(geld[j].wertIstGueltig()==true)
 			{
 				gueltig[n]=geld[j];
-				System.out.println((n+1)+". Gueltiges Wertgeld: Wert: "+gueltig[n].getWert()+"Waehrung: "+gueltig[n].getWaehrung());
+				System.out.println((n+1)+". Gueltiges Wertgeld: Wert: "+gueltig[n].getWert()+" Waehrung: "+gueltig[n].getWaehrung());
 				if(gueltig[n].getWaehrung()=="USD")
 				{
 					wert[0]+=gueltig[n].getWert();
+					if(gueltig[n].getWert()<=1)
+					{
+						muenzgewicht+=((USD_Muenze) gueltig[n]).getGewicht();
+						muenzstapel+=((USD_Muenze)gueltig[n]).getDicke();
+
+					}
+					else
+					{
+						scheinflaeche+=((USD_Schein)gueltig[n]).getBreite()*((USD_Schein)gueltig[n]).getLaenge();
+					}
 				}
 				else if(gueltig[n].getWaehrung()=="EUR")
 				{
 					wert[1]+=gueltig[n].getWert();
+					if(gueltig[n].getWert()<=2)
+					{
+						muenzgewicht+=((EUR_Muenze) gueltig[n]).getGewicht();
+						muenzstapel+=((EUR_Muenze)gueltig[n]).getDicke();
+					}
+					else
+					{
+						scheinflaeche+=((EUR_Schein)gueltig[n]).getBreite()*((EUR_Schein)gueltig[n]).getLaenge();
+					}
 				}
 				else if(gueltig[n].getWaehrung()=="SFR")
 				{
 					wert[2]+=gueltig[n].getWert();
+					if(gueltig[n].getWert()<=5)
+					{
+						muenzgewicht+=((SFR_Muenze) gueltig[n]).getGewicht();
+						muenzstapel+=((SFR_Muenze)gueltig[n]).getDicke();
+					}
+					else
+					{
+						scheinflaeche+=((SFR_Schein)gueltig[n]).getBreite()*((SFR_Schein)gueltig[n]).getLaenge();
+					}
 				}
 				n++;
 			}
 			j++;
 		}
 		System.out.println("Gesamtwerte: USD: "+wert[0]+" EUR: "+wert[1]+" SFR: "+wert[2]);
+		System.out.println("Gesamtflaeche:"+scheinflaeche+" Gesamtgewicht:"+muenzgewicht);
+		System.out.println("Muenzstapel:"+muenzstapel+"cm");
 	}
 }
 
