@@ -1,5 +1,5 @@
 
-public abstract class Zahlungsmittel {
+public abstract class Zahlungsmittel implements Comparable<Zahlungsmittel>{
   private String waehrung;
   private double wert;
   protected Zahlungsmittel(String waehrung, double wert) {
