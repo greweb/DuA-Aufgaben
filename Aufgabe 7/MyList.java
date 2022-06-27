@@ -22,14 +22,15 @@ public class MyList <T> {
 
 	public void remove(Integer index) {
 		if (first.get(index).hasNext()) {
-			
+
+			index= index+1;
 			ListItem<T> conectItem = first.get(index-1);
 			ListItem<T> deleteItem = first.get(index);
 			conectItem.setNext(deleteItem.getNext());
 			deleteItem = null;
 			size = size-1;
 			first.getNext().setDelIndex(1);
-			System.out.println("Item was Deleted at Index: "+(index));
+			System.out.println("Item was Deleted at Index: "+(index-1));
 			}
 		else 
 			System.out.println("Fehler: Index");

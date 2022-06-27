@@ -19,5 +19,21 @@ public class main5 {
 		for (int i=l.size()-1; i>=0; --i)
 			System.out.print(" " + l.get(i).getValue());
 		System.out.println();
+		
+		
+		MyList <Bruch> m = new MyList<Bruch>();
+		m.add(new Bruch(1,3));
+		m.add(new Bruch(2,3));
+		m.add(new Bruch(1,1));
+		m.add(new Bruch(4,3));
+		m.add(new Bruch(5,3));
+		m.add(new Bruch(2,1));
+		m.remove(5);
+		
+		for (int i=m.size()-1; i>=0; --i)
+			System.out.print(" " + ((Bruch) m.get(i).getValue()).get());
+		System.out.println();
+		
 	}
+	
 }
