@@ -15,5 +15,7 @@ public interface Muenze {
 			this.durchmesser=durchmesser;
 			this.dicke=dicke;
 		}
-	};
+		
+	}
 }
+    

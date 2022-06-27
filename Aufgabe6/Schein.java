@@ -1,5 +1,5 @@
 
-public interface Schein {
+public interface Schein  {
    public double getLaenge();
    public double getBreite();
    
@@ -13,5 +13,4 @@ public interface Schein {
 			this.breite=breite;
 		}
 	};
-
 }
